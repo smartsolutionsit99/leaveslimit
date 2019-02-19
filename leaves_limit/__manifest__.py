@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "leaves controll",
+    'name': "leaves control",
 
     'summary': """
         Add Features To Limit Leave Request For Specific Leave Type By Month Or Year """,
