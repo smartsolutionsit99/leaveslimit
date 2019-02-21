@@ -20,8 +20,7 @@
     ],
     'demo': [
     ],
-    'images': ['static/description/img-1.PNG',
-               'static/description/img-2.PNG'],
+    'images': ['static/description/cover.png'],
     'live_test_url': 'https://www.youtube.com/watch?v=8ib59aV1Tfs',
     'auto_install': False,
     'installable': True,
