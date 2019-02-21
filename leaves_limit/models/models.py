@@ -5,7 +5,7 @@ from odoo.tools.translate import _
 
 
 class hr_holidays_status(models.Model):
-    _inherit = 'hr.holidays.status'
+    _inherit = 'hr.leave.type'
 
 
     monthly_limit = fields.Boolean("Limit By Month")
@@ -14,13 +14,13 @@ class hr_holidays_status(models.Model):
     annual_limit_amount = fields.Integer("Maximum annual Request")
 
 class hr_holidays(models.Model):
-    _inherit = 'hr.holidays'
+    _inherit = 'hr.leave'
 
     @api.constrains('employee_id', 'holiday_status_id', 'number_of_days_temp')
     def _check_request_limit(self):
         for rec in self:
-            ids = self.env['hr.holidays'].search(
-                [('employee_id', '=', self.employee_id.id), ('type', '!=', 'add'), ('id', '!=', self.id),
+            ids = self.env['hr.leave'].search(
+                [('employee_id', '=', self.employee_id.id), ('id', '!=', self.id),
                  ('state', '=', 'validate')])
             if rec.holiday_status_id and rec.holiday_status_id.monthly_limit:
                 m = 0
